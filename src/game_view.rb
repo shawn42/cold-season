@@ -13,18 +13,20 @@ class GameView < Widget
     # this would be from animations/etc in the gui only
   end
 
-  def radians_to_gosu(rad); rad * 180.0 / Math::PI + 90; end
-
+  def radians_to_deg(rad); rad * 180.0 / Math::PI + 90; end
+  
   def draw(adapter)
     adapter.draw_image(@level_manager.level.background_image, 0, 0)
     level = @level_manager.level
     bacteria = level.bacteria
     loc = bacteria.body.p
 
-    deg = radians_to_gosu(bacteria.body.a)
-    bacteria.image = bacteria.orig_image.rotozoom(-deg,1,true)
-
-    adapter.draw_image(bacteria.image, loc.x-50, loc.y-50)
+    deg = -radians_to_deg(bacteria.body.a)
+    img = bacteria.orig_image.rotozoom(deg,1,true)
+    bacteria.image = img
+    w = img.size[0]
+    h = img.size[1]
+    adapter.draw_image(bacteria.image, loc.x-w/2, loc.y-h/2)
 
     level.terrain_verts.each_cons(2) do |seg|
       p1,p2 = *seg

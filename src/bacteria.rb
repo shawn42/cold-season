@@ -9,11 +9,11 @@ class Bacteria < PhysicalCircle
       :mass => 45,
       :friction => 0.1,
       :space => space,
-      :location => vec2(130,90)
+      :location => vec2(200,200)
     }
     super(opts)
 
 
-    @image = img.rotozoom(-90,1)
+    @image = img.rotozoom(90,1)
   end
 end
