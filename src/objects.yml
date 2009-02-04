@@ -1,0 +1,25 @@
+game:
+  compose:
+    - wrapped_screen
+    - input_manager
+    - level_manager
+    - game_view
+level_manager:
+  compose:
+    - resource_manager
+    - bacteria_controller
+resource_manager:
+input_manager:
+bacteria_controller:
+  compose:
+    - input_manager
+game_view:
+  compose:
+    - resource_manager
+    - level_manager
+wrapped_screen:
+  compose:
+    - config_manager
+config_manager:
+  compose:
+    - resource_manager

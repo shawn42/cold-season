@@ -1,0 +1,10 @@
+clobber=
+clobber_rdoc=Remove rdoc products
+default=
+html=
+html/index.html=
+rdoc=Build the rdoc HTML Files
+rerdoc=Force a rebuild of the RDOC files
+run=Run Cold Season
+spec=Run all specs (tests)
+stats=Report code statistics (KLOCs, etc) from the application
