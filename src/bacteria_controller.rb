@@ -34,7 +34,7 @@ class BacteriaController
   #  def radians_to_gosu(rad); rad * 180.0 / Math::PI + 90; end
 
   def update(time)
-    power = 3*time
+    power = 30*time
     if @bacteria
       
       if @reset
@@ -57,11 +57,11 @@ class BacteriaController
     end
 
     if @move_back
-      @bacteria.body.apply_impulse(-@bacteria.body.rot*power*10000, ZeroVec2)
+      @bacteria.body.apply_impulse(-@bacteria.body.rot*power*1000, ZeroVec2)
     end
 
     if @move_forward
-      @bacteria.body.apply_impulse @bacteria.body.rot*power*10000, ZeroVec2
+      @bacteria.body.apply_impulse @bacteria.body.rot*power*1000, ZeroVec2
     end
 
 

@@ -24,7 +24,7 @@ class GameView < Widget
     deg = radians_to_gosu(bacteria.body.a)
     bacteria.image = bacteria.orig_image.rotozoom(-deg,1,true)
 
-    adapter.draw_image(bacteria.image, loc.x, loc.y)
+    adapter.draw_image(bacteria.image, loc.x-50, loc.y-50)
 
     level.terrain_verts.each_cons(2) do |seg|
       p1,p2 = *seg

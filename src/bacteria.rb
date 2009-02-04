@@ -5,9 +5,9 @@ class Bacteria < PhysicalCircle
   def initialize(space, img)
     @orig_image = img
     opts = {
-      :radius => 90,
-      :mass => 90,
-      :friction => 1,
+      :radius => 45,
+      :mass => 45,
+      :friction => 0.1,
       :space => space,
       :location => vec2(130,90)
     }
