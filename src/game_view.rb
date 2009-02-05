@@ -9,7 +9,7 @@ class GameView < Container
     @resource_manager = args[:resource_manager]
     @green = GooColor.color(:green,255)
     
-    @score_label = Label.new "0"
+    @score_label = Label.new "0", :font_size=>40, :x=>800, :y=>700
     add @score_label
   end
 

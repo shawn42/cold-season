@@ -6,11 +6,11 @@ class WhiteCell < PhysicalCircle
   def initialize(space, img)
     @orig_image = img
     opts = {
-      :radius => 45,
+      :radius => 30,
       :mass => 30,
       :friction => 2,
       :space => space,
-      :location => vec2(rand(700)+40,rand(600)+40)
+      :location => vec2(rand(300)+400,rand(400)+40)
     }
     super(opts)
 

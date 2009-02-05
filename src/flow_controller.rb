@@ -9,7 +9,7 @@ class FlowController
 
   def setup_bits(sim)
     @img = @resource_manager.load_image("air_bubble.png")
-    35.times do
+    55.times do
       @bits << FlowBit.new(sim.space, @img)
     end
 

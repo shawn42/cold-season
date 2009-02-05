@@ -67,5 +67,6 @@ class LevelManager
 
   def finish_level
     puts "YAY, YOU WON"
+    throw :rubygame_quit
   end
 end

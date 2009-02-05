@@ -10,7 +10,7 @@ class FlowBit < PhysicalCircle
       :mass => 8,
       :friction => 1,
       :space => space,
-      :location => vec2(780,rand(600)+30)
+      :location => vec2(rand(400)+380,rand(600)+30)
     }
     super(opts)
 
