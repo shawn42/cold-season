@@ -8,9 +8,12 @@ class ResourceManager
   end
 
   def load_image(file_name)
-    if @loaded_images[file_name].nil?
-      @loaded_images[file_name] = Rubygame::Surface.load(File.expand_path(DATA_PATH + "gfx/" + file_name))
+    cached_img = @loaded_images[file_name]
+    if cached_img.nil?
+      cached_img = Rubygame::Surface.load(File.expand_path(DATA_PATH + "gfx/" + file_name))
+      @loaded_images[file_name] = cached_img
     end
+    cached_img
   end
 
   def load_music(name)

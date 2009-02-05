@@ -8,11 +8,15 @@ level_manager:
   compose:
     - resource_manager
     - bacteria_controller
+    - healthy_cell_controller
 resource_manager:
 input_manager:
 bacteria_controller:
   compose:
     - input_manager
+healthy_cell_controller:
+  compose:
+    - resource_manager
 game_view:
   compose:
     - resource_manager

@@ -1,5 +1,5 @@
 class PhysicalCircle
-  attr_reader :body, :mass, :radius
+  attr_reader :body, :mass, :radius, :shape
 
   Defaults = {
     :location => ZeroVec2,
@@ -28,9 +28,9 @@ class PhysicalCircle
     @shape.u = opts[:friction]
     @shape.group = @group if @group
 
-    space = opts[:space]
-    space.add_body(@body)
-    space.add_shape(@shape)
+    @space = opts[:space]
+    @space.add_body(@body)
+    @space.add_shape(@shape)
   end
 
   def cold_drop(loc)

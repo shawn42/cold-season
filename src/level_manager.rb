@@ -3,8 +3,8 @@ require 'simulation'
 require 'bacteria'
 
 class LevelManager
-  attr_reader :level
-  constructor :resource_manager, :bacteria_controller
+  attr_reader :level, :healthy_cell_controller
+  constructor :resource_manager, :bacteria_controller, :healthy_cell_controller
 
   def start
     @level = Level.new
@@ -18,10 +18,40 @@ class LevelManager
     
     @level.bacteria = bacteria
     @bacteria_controller.bacteria = bacteria
+
+    
+    @healthy_cell_controller.setup_cells @simulation
+
   end
 
   def update(time)
     @bacteria_controller.update time
+    @healthy_cell_controller.update time
     @simulation.space.step time
+
+    bacteria = @bacteria_controller.bacteria
+    # TODO: WHERE SHOULD THIS GO?
+    cells_to_kill = []
+    for cell in @healthy_cell_controller.cells
+#      cell_loc = cell.body.p
+#      bacteria_loc = bacteria.body.p
+#
+#      dist = Math.sqrt((cell_loc.x-bacteria_loc.x)*(cell_loc.x-bacteria_loc.x)+(cell_loc.y-bacteria_loc.y)*(cell_loc.y-bacteria_loc.y))
+#
+#      cells_to_kill << cell if dist < 100
+      cells_to_kill << cell if bacteria.shape.bb.intersect? cell.shape.bb
+    end
+    for cell in cells_to_kill
+      bacteria.score += 10
+      @healthy_cell_controller.cells.delete cell
+      cell.kill_self
+
+      finish_level if @healthy_cell_controller.cells.empty?
+    end
+    
+  end
+
+  def finish_level
+    puts "YAY, YOU WON"
   end
 end
