@@ -34,23 +34,25 @@ class BacteriaController
   #  def radians_to_gosu(rad); rad * 180.0 / Math::PI + 90; end
 
   def update(time)
-    power = 15*time
+    power = 8*time
     if @move_left
-      @bacteria.body.w -= power
+      @bacteria.body.a -= power
+      @bacteria.body.w += power/2
       #        deg = radians_to_gosu(@bacteria.body.a)
       #        p "L:#{deg}"
       #        @bacteria.image = @bacteria.orig_image.rotozoom(-deg,1,true)
     end
 
     if @move_right
-      @bacteria.body.w += power
+      @bacteria.body.a += power
+      @bacteria.body.w += power/2
       #        deg = radians_to_gosu(@bacteria.body.a)
       #        p "R:#{deg}"
       #        @bacteria.image = @bacteria.orig_image.rotozoom(deg,1,true)
     end
 
     if @move_back
-      @bacteria.body.apply_impulse(-@bacteria.body.rot*power*5000, ZeroVec2)
+      @bacteria.body.apply_impulse(-@bacteria.body.rot*power*12000, ZeroVec2)
     end
 
     if @move_forward
