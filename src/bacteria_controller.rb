@@ -37,7 +37,7 @@ class BacteriaController
     power = 8*time
     if @move_left
       @bacteria.body.a -= power
-      @bacteria.body.w += power/2
+      @bacteria.body.w -= power/2
       #        deg = radians_to_gosu(@bacteria.body.a)
       #        p "L:#{deg}"
       #        @bacteria.image = @bacteria.orig_image.rotozoom(-deg,1,true)
