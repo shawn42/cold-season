@@ -14,6 +14,9 @@ class LevelManager
     @simulation = Simulation.new
     @level.simulation = @simulation
 
+    # in seconds
+    @level.time_remaining = 60
+
     @level.build_segments
     bacteria = Bacteria.new @simulation.space, @resource_manager.load_image("bacteria.png")
     
@@ -33,6 +36,7 @@ class LevelManager
     @white_cell_controller.update time
     @flow_controller.update time
     @simulation.space.step time
+    @level.update time
 
     bacteria = @bacteria_controller.bacteria
     # TODO: WHERE SHOULD THIS GO?
@@ -47,7 +51,7 @@ class LevelManager
       cells_to_kill << cell if bacteria.shape.bb.intersect? cell.shape.bb
     end
     for cell in cells_to_kill
-      bacteria.score += 10
+      bacteria.score += 50
       @healthy_cell_controller.cells.delete cell
       cell.kill_self
 
@@ -57,6 +61,8 @@ class LevelManager
     for cell in @white_cell_controller.cells
       fail_level if bacteria.shape.bb.intersect? cell.shape.bb
     end
+
+    fail_level if @level.time_remaining <= 0
     
   end
 
@@ -66,7 +72,9 @@ class LevelManager
   end
 
   def finish_level
-    puts "YAY, YOU WON"
+    bacteria = @bacteria_controller.bacteria
+    bacteria.score += @level.time_remaining.to_i
+    puts "YAY, YOU WON WITH A SCORE OF [#{bacteria.score}]"
     throw :rubygame_quit
   end
 end

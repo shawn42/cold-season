@@ -10,7 +10,15 @@ class GameView < Container
     @green = GooColor.color(:green,255)
     
     @score_label = Label.new "0", :font_size=>40, :x=>800, :y=>700
-    add @score_label
+    @time_label = Label.new "0", :font_size=>40, :x=>800, :y=>750
+    add @score_label, @time_label
+  end
+
+  def format_time(time_in_seconds)
+    seconds = (time_in_seconds).floor
+    min = (seconds/60).floor
+    seconds = "0#{seconds}" if seconds < 10
+    return "#{min}:#{seconds}"
   end
 
   def update(time)
@@ -18,7 +26,9 @@ class GameView < Container
    
     # TODO: change this to be event driven
     score = @level_manager.level.bacteria.score.to_s
+    time = format_time @level_manager.level.time_remaining
     @score_label.set_text score unless score == @score_label.instance_variable_get('@text')
+    @time_label.set_text time
   end
 
   def radians_to_deg(rad); rad * 180.0 / Math::PI + 90; end

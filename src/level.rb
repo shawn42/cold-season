@@ -3,7 +3,8 @@ require 'enumerator'
 
 class Level
   include CP
-  attr_accessor :simulation, :background_image, :bacteria, :segments, :terrain_verts
+  attr_accessor :simulation, :background_image, :bacteria, :segments, :terrain_verts, :time_remaining
+
 
   def initialize
     @segments = []
@@ -28,5 +29,9 @@ class Level
       @segments << seg
       @simulation.space.add_shape(seg)
     end
+  end
+
+  def update(time)
+    @time_remaining -= time
   end
 end
