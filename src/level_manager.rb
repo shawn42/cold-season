@@ -3,8 +3,9 @@ require 'simulation'
 require 'bacteria'
 
 class LevelManager
-  attr_reader :level, :healthy_cell_controller
-  constructor :resource_manager, :bacteria_controller, :healthy_cell_controller
+  attr_reader :level, :healthy_cell_controller, :flow_controller
+  constructor :resource_manager, :bacteria_controller, :healthy_cell_controller,
+    :flow_controller
 
   def start
     @level = Level.new
@@ -21,12 +22,14 @@ class LevelManager
 
     
     @healthy_cell_controller.setup_cells @simulation
+    @flow_controller.setup_bits @simulation
 
   end
 
   def update(time)
     @bacteria_controller.update time
     @healthy_cell_controller.update time
+    @flow_controller.update time
     @simulation.space.step time
 
     bacteria = @bacteria_controller.bacteria

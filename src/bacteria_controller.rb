@@ -35,13 +35,6 @@ class BacteriaController
 
   def update(time)
     power = 30*time
-    if @bacteria
-      
-      if @reset
-        @bacteria.body.reset_forces
-      end
-      
-    end
     if @move_left
       @bacteria.body.w -= power
       #        deg = radians_to_gosu(@bacteria.body.a)
@@ -64,7 +57,8 @@ class BacteriaController
       @bacteria.body.apply_impulse @bacteria.body.rot*power*1000, ZeroVec2
     end
 
-
+    #@bacteria.body.w = @bacteria.body.w * 50*time
+    
 
   end
 end
