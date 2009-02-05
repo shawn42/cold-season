@@ -3,9 +3,9 @@ require 'simulation'
 require 'bacteria'
 
 class LevelManager
-  attr_reader :level, :healthy_cell_controller, :flow_controller
+  attr_reader :level, :healthy_cell_controller, :flow_controller, :white_cell_controller
   constructor :resource_manager, :bacteria_controller, :healthy_cell_controller,
-    :flow_controller
+    :flow_controller, :white_cell_controller
 
   def start
     @level = Level.new
@@ -23,12 +23,14 @@ class LevelManager
     
     @healthy_cell_controller.setup_cells @simulation
     @flow_controller.setup_bits @simulation
+    @white_cell_controller.setup_cells @simulation
 
   end
 
   def update(time)
     @bacteria_controller.update time
     @healthy_cell_controller.update time
+    @white_cell_controller.update time
     @flow_controller.update time
     @simulation.space.step time
 
@@ -51,7 +53,16 @@ class LevelManager
 
       finish_level if @healthy_cell_controller.cells.empty?
     end
+
+    for cell in @white_cell_controller.cells
+      fail_level if bacteria.shape.bb.intersect? cell.shape.bb
+    end
     
+  end
+
+  def fail_level
+    puts "YOU SUCK"
+    throw :rubygame_quit
   end
 
   def finish_level

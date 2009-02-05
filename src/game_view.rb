@@ -43,6 +43,9 @@ class GameView < Container
     for cell in @level_manager.healthy_cell_controller.cells
       draw_cell cell, adapter
     end
+    for cell in @level_manager.white_cell_controller.cells
+      draw_cell cell, adapter
+    end
     for bit in @level_manager.flow_controller.bits
       draw_cell bit, adapter if bit.draw?
     end
