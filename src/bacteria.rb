@@ -7,7 +7,7 @@ class Bacteria < PhysicalCircle
     opts = {
       :radius => 45,
       :mass => 45,
-      :friction => 0.1,
+      :friction => 0.01,
       :space => space,
       :location => vec2(100,600)
     }

@@ -52,11 +52,11 @@ class BacteriaController
     end
 
     if @move_back
-      @bacteria.body.apply_impulse(-@bacteria.body.rot*power*12000, ZeroVec2)
+      @bacteria.body.apply_impulse(-@bacteria.body.rot*power*3000, ZeroVec2)
     end
 
     if @move_forward
-      @bacteria.body.apply_impulse @bacteria.body.rot*power*3000, ZeroVec2
+      @bacteria.body.apply_impulse @bacteria.body.rot*power*10000, ZeroVec2
     end
 
     #@bacteria.body.w = @bacteria.body.w * 50*time
