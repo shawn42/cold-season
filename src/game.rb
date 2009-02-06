@@ -16,6 +16,10 @@ class Game
     @app_adapter = factory.app_for :rubygame, @gui
 
     @input_manager.when :event_received do |evt|
+      case evt
+      when KeyUpEvent
+        @playing = true
+      end
       @app_adapter.on_event evt
     end
     @wrapped_screen.show_cursor = false
@@ -33,7 +37,7 @@ class Game
 
   def update_simulation(time)
     # TODO update the physics
-    @level_manager.update time
+    @level_manager.update time if @playing
   end
 
 end
