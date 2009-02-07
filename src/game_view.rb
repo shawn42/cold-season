@@ -7,10 +7,13 @@ class GameView < Container
 
     @level_manager = args[:level_manager]
     @resource_manager = args[:resource_manager]
+    @viewport = args[:viewport]
+
     @green = GooColor.color(:green,255)
     
     @score_label = Label.new "0", :font_size=>40, :x=>800, :y=>700
     @time_label = Label.new "0", :font_size=>40, :x=>800, :y=>750
+
     add @score_label, @time_label
   end
 
@@ -40,12 +43,17 @@ class GameView < Container
     cell.image = img
     w = img.size[0]
     h = img.size[1]
-    adapter.draw_image(cell.image, loc.x-w/2, loc.y-h/2)
+    x = @viewport.offset_x(loc.x-w/2)
+    y = @viewport.offset_y(loc.y-h/2)
+    adapter.draw_image(cell.image, x, y)
 
   end
 
   def draw(adapter)
-    adapter.draw_image(@level_manager.level.background_image, 0, 0)
+
+    x = @viewport.offset_x(0)
+    y = @viewport.offset_y(0)
+    adapter.draw_image(@level_manager.level.background_image, x, y)
     level = @level_manager.level
     bacteria = level.bacteria
     draw_cell bacteria, adapter
@@ -62,17 +70,15 @@ class GameView < Container
 
     level.terrain_verts.each_cons(2) do |seg|
       p1,p2 = *seg
-      adapter.fill(p1.x,p1.y,p2.x,p2.y+1,@green)
+
+      x1 = @viewport.offset_x(p1.x)
+      y1 = @viewport.offset_y(p1.y)
+      x2 = @viewport.offset_x(p2.x)
+      y2 = @viewport.offset_y(p2.y+1)
+
+      adapter.fill(x1,y1,x2,y2,@green)
     end
 
-
-#    fc = @level_manager.flow_controller
-#    for bit in fc.bits
-#      loc = bit.body.p
-#      adapter.draw_image(bit.image, loc.x, loc.y)
-#      # draw bit
-#    end
-    
   end
 
 

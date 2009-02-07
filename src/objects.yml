@@ -11,11 +11,18 @@ level_manager:
     - flow_controller
     - healthy_cell_controller
     - white_cell_controller
+    - viewport_controller
 resource_manager:
 input_manager:
 bacteria_controller:
   compose:
     - input_manager
+viewport_controller:
+  compose:
+    - viewport
+viewport:
+  compose:
+    - config_manager
 healthy_cell_controller:
   compose:
     - resource_manager
@@ -29,6 +36,7 @@ game_view:
   compose:
     - resource_manager
     - level_manager
+    - viewport
 wrapped_screen:
   compose:
     - config_manager

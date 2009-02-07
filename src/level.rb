@@ -17,7 +17,7 @@ class Level
     thickness = 0.5
     @terrain_body = Body.new(mass,moment_of_inertia)
 #    @terrain_verts = [[0,600],[800,700]]
-    @terrain_verts = [vec2(10,600),vec2(800,601),vec2(800,25),vec2(10,25),vec2(10,600)]
+    @terrain_verts = [vec2(20,600),vec2(1800,601),vec2(1800,25),vec2(20,25),vec2(20,600)]
 #    @terrain_verts.each_segment do |a,b|
 
     @terrain_verts.each_cons(2) do |point|

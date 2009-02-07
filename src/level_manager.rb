@@ -5,7 +5,7 @@ require 'bacteria'
 class LevelManager
   attr_reader :level, :healthy_cell_controller, :flow_controller, :white_cell_controller
   constructor :resource_manager, :bacteria_controller, :healthy_cell_controller,
-    :flow_controller, :white_cell_controller
+    :flow_controller, :white_cell_controller, :viewport_controller
 
   def start
     @level = Level.new
@@ -19,8 +19,10 @@ class LevelManager
 
     @level.build_segments
     bacteria = Bacteria.new @simulation.space, @resource_manager.load_image("bacteria.png")
-    
+
     @level.bacteria = bacteria
+    @viewport_controller.follow_target = bacteria
+    @viewport_controller.focus bacteria.body.p
     @bacteria_controller.bacteria = bacteria
 
     
@@ -35,6 +37,7 @@ class LevelManager
     @healthy_cell_controller.update time
     @white_cell_controller.update time
     @flow_controller.update time
+    @viewport_controller.update time
     @simulation.space.step time
     @level.update time
 
