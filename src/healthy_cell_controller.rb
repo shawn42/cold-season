@@ -20,10 +20,12 @@ class HealthyCellController
 
     for cell in @cells
       # only avoid sometimes
-      if @avoid && rand(3) == 0
+
+      dist = (cell.body.p - @avoid.body.p).length if @avoid
+      if dist and dist < 300
         # TODO: this is overly simple and not correct
-        #cell.body.apply_impulse @avoid.body.v.perp+vec2(rand(50),rand(50))*power, ZeroVec2
-        cell.body.apply_impulse -@avoid.body.v+vec2(rand(50),rand(50))*power, ZeroVec2
+        cell.body.apply_impulse @avoid.body.v.perp+vec2(rand(50),rand(50))*power, ZeroVec2
+        #cell.body.apply_impulse -@avoid.body.v+vec2(rand(50),rand(50))*power, ZeroVec2
       else
         #turn
         turn_ran = rand 3

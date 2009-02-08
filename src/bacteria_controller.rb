@@ -36,16 +36,16 @@ class BacteriaController
     power = 6*time
     if @move_left
       @bacteria.body.a -= power
-      @bacteria.body.w -= power/2 if @bacteria.body.w > 2
+      @bacteria.body.w -= power/2 if @bacteria.body.w > 2.5
     end
 
     if @move_right
       @bacteria.body.a += power
-      @bacteria.body.w += power/2 if @bacteria.body.w < 2
+      @bacteria.body.w += power/2 if @bacteria.body.w < 2.5
     end
 
     if @move_back
-      @bacteria.body.apply_impulse(-@bacteria.body.rot*power*4000, ZeroVec2) if @bacteria.body.v.length > 400
+      @bacteria.body.apply_impulse(-@bacteria.body.rot*power*8000, ZeroVec2) if @bacteria.body.v.length < 400
     end
 
     if @move_forward
