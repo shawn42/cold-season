@@ -6,7 +6,7 @@ class WhiteCell < PhysicalCircle
   def initialize(space, img)
     @orig_image = img
     opts = {
-      :radius => 30,
+      :radius => 20,
       :mass => 30,
       :friction => 2,
       :space => space,
@@ -19,7 +19,6 @@ class WhiteCell < PhysicalCircle
   end
 
   def kill_self
-    puts "AH #{self.object_id} died"
     @space.remove_body(@body)
     @space.remove_shape(@shape)
   end

@@ -10,12 +10,20 @@ class FlowBit < PhysicalCircle
       :mass => 8,
       :friction => 1,
       :space => space,
-      :location => vec2(rand(400)+380,rand(600)+30)
+      :location => vec2(rand_x,rand_y)
     }
     super(opts)
 
     @visible = (rand(6) == 0)
     @image = img.rotozoom(90,1)
+  end
+
+  def rand_x
+    rand(1800)
+  end
+
+  def rand_y
+    rand(500)+30
   end
 
   def kill_self

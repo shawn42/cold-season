@@ -3,7 +3,8 @@ require 'enumerator'
 
 class Level
   include CP
-  attr_accessor :simulation, :background_image, :bacteria, :segments, :terrain_verts, :time_remaining
+  attr_accessor :simulation, :background_image, :bacteria, :segments, 
+    :terrain_verts, :time_remaining, :terrain
 
 
   def initialize

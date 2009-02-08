@@ -9,7 +9,7 @@ class GameView < Container
     @resource_manager = args[:resource_manager]
     @viewport = args[:viewport]
 
-    @green = GooColor.color(:green,255)
+    @green = GooColor.new(11,200,22,255)
     
     @score_label = Label.new "0", :font_size=>40, :x=>800, :y=>700
     @time_label = Label.new "0", :font_size=>40, :x=>800, :y=>750
@@ -19,7 +19,8 @@ class GameView < Container
 
   def format_time(time_in_seconds)
     seconds = (time_in_seconds).floor
-    min = (seconds/60).floor
+    min = ((seconds-59)/60).floor
+    min = 0 if min < 1
     seconds = "0#{seconds}" if seconds < 10
     return "#{min}:#{seconds}"
   end
@@ -68,7 +69,7 @@ class GameView < Container
       draw_cell bit, adapter if bit.draw?
     end
 
-    level.terrain_verts.each_cons(2) do |seg|
+    level.terrain.vertices.each_cons(2) do |seg|
       p1,p2 = *seg
 
       x1 = @viewport.offset_x(p1.x)
@@ -76,7 +77,11 @@ class GameView < Container
       x2 = @viewport.offset_x(p2.x)
       y2 = @viewport.offset_y(p2.y+1)
 
-      adapter.fill(x1,y1,x2,y2,@green)
+      # TODO change these to draw_polygon_a calls
+      adapter.instance_variable_get('@screen').draw_line_a([x1,y1],[x2,y2],[@green.r,@green.g,@green.b,@green.a])
+      adapter.instance_variable_get('@screen').draw_line_a([x1,y1+1],[x2,y2+1],[@green.r,@green.g,@green.b,@green.a])
+      adapter.instance_variable_get('@screen').draw_line_a([x1,y1+2],[x2,y2+2],[@green.r,@green.g,@green.b,@green.a])
+      #adapter.fill(x1,y1,x2,y2,@green)
     end
 
   end

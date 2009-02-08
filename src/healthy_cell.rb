@@ -19,9 +19,6 @@ class HealthyCell < PhysicalCircle
   end
 
   def kill_self
-    
-    puts "AH #{self.object_id} died"
-    
     @space.remove_body(@body)
     @space.remove_shape(@shape)
   end

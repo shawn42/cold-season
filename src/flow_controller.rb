@@ -9,7 +9,7 @@ class FlowController
 
   def setup_bits(sim)
     @img = @resource_manager.load_image("air_bubble.png")
-    50.times do
+    100.times do
       @bits << FlowBit.new(sim.space, @img)
     end
 
@@ -21,7 +21,7 @@ class FlowController
       # check bounds
       loc = bit.body.p
       if loc.x < 30
-        bit.body.p = vec2(780,loc.y)
+        bit.body.p = vec2(bit.rand_x,bit.rand_y)
       end
 
       # apply force

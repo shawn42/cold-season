@@ -12,7 +12,14 @@ level_manager:
     - healthy_cell_controller
     - white_cell_controller
     - viewport_controller
+    - terrain_factory
 resource_manager:
+terrain_factory:
+  compose:
+    - svg_loader
+svg_loader:
+  compose:
+    - resource_manager
 input_manager:
 bacteria_controller:
   compose:

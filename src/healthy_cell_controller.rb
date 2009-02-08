@@ -8,7 +8,7 @@ class HealthyCellController
   end
 
   def setup_cells(sim)
-    8.times do
+    18.times do
       @cells << HealthyCell.new(sim.space, @resource_manager.load_image("red_cell.png"))
     end
 
