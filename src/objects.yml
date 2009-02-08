@@ -13,6 +13,7 @@ level_manager:
     - white_cell_controller
     - viewport_controller
     - terrain_factory
+    - sound_manager
 resource_manager:
 terrain_factory:
   compose:
@@ -20,6 +21,10 @@ terrain_factory:
 svg_loader:
   compose:
     - resource_manager
+sound_manager:
+  compose:
+    - resource_manager
+    - config_manager
 input_manager:
 bacteria_controller:
   compose:

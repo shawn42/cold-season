@@ -5,7 +5,8 @@ require 'bacteria'
 class LevelManager
   attr_reader :level, :healthy_cell_controller, :flow_controller, :white_cell_controller
   constructor :resource_manager, :bacteria_controller, :healthy_cell_controller,
-    :flow_controller, :white_cell_controller, :viewport_controller, :terrain_factory
+    :flow_controller, :white_cell_controller, :viewport_controller, :terrain_factory,
+    :sound_manager
 
   def start
     @level = Level.new
@@ -32,6 +33,7 @@ class LevelManager
     @flow_controller.setup_bits @simulation
     @white_cell_controller.setup_cells @simulation
 
+    @sound_manager.play :background_music
   end
 
   def update(time)
@@ -54,27 +56,43 @@ class LevelManager
       @healthy_cell_controller.cells.delete cell
       cell.kill_self
 
-      finish_level if @healthy_cell_controller.cells.empty?
+      if @healthy_cell_controller.cells.empty?
+        finish_level 
+      else
+        @sound_manager.play_sound :splat
+      end
+
     end
 
     for cell in @white_cell_controller.cells
-      fail_level if bacteria.shape.bb.intersect? cell.shape.bb
+
+      if bacteria.shape.bb.intersect? cell.shape.bb
+        @sound_manager.play_sound :crowd_oh
+        fail_level 
+      end
     end
 
-    fail_level if @level.time_remaining <= 0
+    
+    if @level.time_remaining <= 0
+      @sound_manager.play_sound :times_up
+      fail_level
+    end
     
   end
 
   def fail_level
     bacteria = @bacteria_controller.bacteria
     puts "YOU LOST! WITH A SCORE OF [#{bacteria.score}]"
+    sleep 1.5
     throw :rubygame_quit
   end
 
   def finish_level
+    @sound_manager.play_sound :fanfare
     bacteria = @bacteria_controller.bacteria
     bacteria.score += @level.time_remaining.to_i
     puts "YAY, YOU WON WITH A SCORE OF [#{bacteria.score}]"
+    sleep 1.5
     throw :rubygame_quit
   end
 end
