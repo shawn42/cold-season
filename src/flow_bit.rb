@@ -19,7 +19,7 @@ class FlowBit < PhysicalCircle
   end
 
   def rand_x
-    rand(1800)
+    rand(10000)-1000
   end
 
   def rand_y
@@ -27,7 +27,6 @@ class FlowBit < PhysicalCircle
   end
 
   def kill_self
-    puts "AH #{self.object_id} died"
     @space.remove_body(@body)
     @space.remove_shape(@shape)
   end

@@ -27,6 +27,7 @@ class LevelManager
     @viewport_controller.follow_target = bacteria
     @viewport_controller.focus bacteria.body.p
     @bacteria_controller.bacteria = bacteria
+    @healthy_cell_controller.avoid = bacteria
 
     
     @healthy_cell_controller.setup_cells @simulation
@@ -83,7 +84,7 @@ class LevelManager
   def fail_level
     bacteria = @bacteria_controller.bacteria
     puts "YOU LOST! WITH A SCORE OF [#{bacteria.score}]"
-    sleep 1.5
+    sleep 1.5 if @sound_manager.enabled?
     throw :rubygame_quit
   end
 
@@ -92,7 +93,7 @@ class LevelManager
     bacteria = @bacteria_controller.bacteria
     bacteria.score += @level.time_remaining.to_i
     puts "YAY, YOU WON WITH A SCORE OF [#{bacteria.score}]"
-    sleep 1.5
+    sleep 1.5 if @sound_manager.enabled?
     throw :rubygame_quit
   end
 end

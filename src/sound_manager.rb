@@ -1,5 +1,4 @@
 class SoundManager
-  attr_reader :enabled
 
   constructor :resource_manager, :config_manager
   def setup()
@@ -36,7 +35,11 @@ class SoundManager
       @sounds[:times_up] = @resource_manager.load_sound("times_up.ogg")
       @sounds[:fanfare] = @resource_manager.load_sound("fanfare.ogg")
     end
-  end 
+  end
+
+  def enabled?
+    @enabled
+  end
 
   def play_sound(what)
     if @enabled
