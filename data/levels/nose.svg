@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
-   xmlns:game="http://crosby/gosu/truck"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="10000"
@@ -38,9 +36,9 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.044194174"
-     inkscape:cx="382.08846"
-     inkscape:cy="69.885826"
+     inkscape:zoom="0.1767767"
+     inkscape:cx="1921.0639"
+     inkscape:cy="709.01328"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -70,168 +68,5 @@
        d="M 22.627417,-2784.5045 L 45.254834,-1721.0159 L 113.13708,-793.29177 L 22.627417,111.80491 L -248.90159,994.27417 L 0,1469.4499 L 678.82251,1786.2338 L 1538.6644,1650.4693 L 2240.1143,1265.8032 L 2715.29,1175.2935 L 3982.4254,1288.4306 L 4638.6205,1311.058 L 4978.0317,1016.9016 L 5023.2866,541.72583 L 4864.8947,89.177491 L 4457.6011,-453.88052 L 4118.1899,-657.52727 L 3529.877,-702.7821 L 3054.7013,-702.7821 L 2579.5255,-929.05627 L 2172.232,-1358.9772 L 1697.0563,-1879.4078 L 1470.7821,-2286.7013 L 1063.4886,-2739.2496 L 701.44993,-2875.0141 L 407.29351,-3010.7786 L 67.882251,-3056.0335 L -67.882251,-2988.1512"
        id="path2416"
        sodipodi:nodetypes="cccccccccccccccccccccccccccc" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer7"
-     inkscape:label="positions">
-    <image
-       style="display:inline"
-       y="165.67746"
-       x="7808.9438"
-       id="image6192"
-       height="123"
-       width="165"
-       sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/art/truck_placeholder.png"
-       xlink:href="/Users/crosby/svn/crosby/gosu/truck/art/truck_placeholder.png"
-       game:handle="truck_start" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="zones"
-     style="display:inline">
-    <rect
-       inkscape:label="bounds"
-       y="306.02182"
-       x="331.16211"
-       height="143.58534"
-       width="547.14087"
-       id="rect2384"
-       style="opacity:0.99502486;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.4378475;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:1;stroke-dasharray:4.31354266, 1.43784754;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer4"
-     inkscape:label="proto"
-     style="display:inline" />
-  <g
-     inkscape:groupmode="layer"
-     id="layer8"
-     inkscape:label="sliders">
-    <g
-       style="display:inline"
-       id="g6291"
-       game:class="left_slider"
-       game:handle="slider1"
-       transform="translate(5,-5)">
-      <image
-         inkscape:transform-center-y="-104"
-         inkscape:transform-center-x="-38"
-         xlink:href="steel_slider_200.png"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/steel_slider_200.png"
-         width="200"
-         height="30"
-         id="image6287"
-         x="8139.1211"
-         y="346.82843" />
-    </g>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="fruits"
-     style="display:inline" />
-  <g
-     inkscape:groupmode="layer"
-     id="layer3"
-     inkscape:label="crates"
-     style="display:inline">
-    <g
-       id="g2578"
-       game:class="crate"
-       game:handle="apple"
-       transform="translate(5028,-32)">
-      <image
-         xlink:href="wood_box.png"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/wood_box.png"
-         width="150"
-         height="150"
-         id="image2479"
-         x="340.54932"
-         y="11.697517"
-         game:class="box" />
-      <image
-         xlink:href="apple_100.png"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/apple_100.png"
-         width="100"
-         height="100"
-         id="image2531"
-         x="364.68231"
-         y="36.697517"
-         game:class="icon" />
-    </g>
-    <g
-       id="g2584"
-       game:class="crate"
-       game:handle="banana"
-       transform="translate(854.18499,44.651804)">
-      <image
-         xlink:href="wood_box.png"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/wood_box.png"
-         width="150"
-         height="150"
-         id="image2471"
-         x="520.54932"
-         y="11.697517"
-         game:class="box" />
-      <image
-         xlink:href="bananas_100.png"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/bananas_100.png"
-         width="100"
-         height="100"
-         id="image2598"
-         x="545.54932"
-         y="35.295448"
-         game:class="icon" />
-    </g>
-    <g
-       id="g2590"
-       game:class="crate"
-       game:handle="strawberry"
-       transform="translate(2107.1782,212.8671)">
-      <image
-         y="11.53457"
-         x="700.71228"
-         id="image2477"
-         height="150"
-         width="150"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/wood_box.png"
-         xlink:href="wood_box.png"
-         game:class="box" />
-      <image
-         xlink:href="strawberry_100.png"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/strawberry_100.png"
-         width="100"
-         height="100"
-         id="image2665"
-         x="726.57928"
-         y="35.1325"
-         game:class="icon" />
-    </g>
-    <g
-       transform="translate(7468,-104)"
-       game:handle="lettuce"
-       game:class="crate"
-       id="g2427">
-      <image
-         game:class="box"
-         y="11.697517"
-         x="340.54932"
-         id="image2429"
-         height="150"
-         width="150"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/wood_box.png"
-         xlink:href="wood_box.png" />
-      <image
-         y="44"
-         x="366"
-         id="image2669"
-         height="85"
-         width="100"
-         sodipodi:absref="/Users/crosby/svn/crosby/gosu/truck/media/lettuce_100.png"
-         xlink:href="lettuce_100.png"
-         game:class="icon" />
-    </g>
   </g>
 </svg>

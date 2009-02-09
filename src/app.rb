@@ -6,6 +6,9 @@ require 'rubygame'
 include Rubygame
 
 require "environment"
+
+require 'surface_ext'
+
 require 'rubygoo'
 include Rubygoo
 

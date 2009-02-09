@@ -71,18 +71,40 @@ class GameView < Container
       draw_cell bit, adapter if bit.draw?
     end
 
+    thickness = 17
+    half_thickness = thickness/2.0
+    
     level.terrain.vertices.each_cons(2) do |seg|
       p1,p2 = *seg
-
       x1 = @viewport.offset_x(p1.x)
       y1 = @viewport.offset_y(p1.y)
       x2 = @viewport.offset_x(p2.x)
-      y2 = @viewport.offset_y(p2.y+1)
+      y2 = @viewport.offset_y(p2.y)
 
-      # TODO change these to draw_polygon_a calls
-      adapter.instance_variable_get('@screen').draw_line_a([x1,y1],[x2,y2],[@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a])
-      adapter.instance_variable_get('@screen').draw_line_a([x1,y1+1],[x2,y2+1],[@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a])
-      adapter.instance_variable_get('@screen').draw_line_a([x1,y1+2],[x2,y2+2],[@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a])
+#      points = []
+#      lv = p2-p1
+#      pv = lv.perp.normalize
+#
+#      pvt = pv*half_thickness
+#      poly_point1 = vec2(x1,y1)+pvt
+#      poly_point2 = vec2(x2,y2)+pvt
+#      poly_point3 = vec2(x2,y2)-pvt
+#      poly_point4 = vec2(x1,y1)-pvt
+#
+#      points << [poly_point1.x,poly_point1.y]
+#      points << [poly_point2.x,poly_point2.y]
+#      points << [poly_point3.x,poly_point3.y]
+#      points << [poly_point4.x,poly_point4.y]
+#      points << [poly_point1.x,poly_point1.y]
+#
+#      adapter.instance_variable_get('@screen').draw_polygon_s points,
+#        [@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a]
+#      adapter.instance_variable_get('@screen').draw_circle_s [x1,y1],half_thickness,
+#        [@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a]
+#      adapter.instance_variable_get('@screen').draw_circle_s [x2,y2], half_thickness,
+#        [@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a]
+        adapter.instance_variable_get('@screen').draw_line_s [x1,y1],[x2,y2],
+        [@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a],thickness
       #adapter.fill(x1,y1,x2,y2,@green)
     end
 
