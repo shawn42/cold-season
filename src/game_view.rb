@@ -1,7 +1,4 @@
 class GameView < Container
-
-  #constructor :level_manager, :resource_manager
-
   def initialize(args)
     super(args)
 
@@ -9,7 +6,7 @@ class GameView < Container
     @resource_manager = args[:resource_manager]
     @viewport = args[:viewport]
 
-    @green = GooColor.new(11,200,22,255)
+    @seg_color = GooColor.new(22,11,11,255)
     
     @score_label = Label.new "0", :font_size=>40, :x=>800, :y=>700
     @time_label = Label.new "0", :font_size=>40, :x=>800, :y=>750
@@ -52,12 +49,17 @@ class GameView < Container
 
   def draw(adapter)
 
-    x = @viewport.offset_x(0)
-    y = @viewport.offset_y(0)
-    adapter.draw_image(@level_manager.level.background_image, x, y)
+#    x = @viewport.offset_x(-500)
+#    y = @viewport.offset_y(-2000)
+#    adapter.draw_image(@level_manager.level.background_image, x, y)
+
+
     level = @level_manager.level
+    adapter.fill(-10_000,-10_000,10_000,10_000,level.bg_color)
+
     bacteria = level.bacteria
     draw_cell bacteria, adapter
+
     
     for cell in @level_manager.healthy_cell_controller.cells
       draw_cell cell, adapter
@@ -78,9 +80,9 @@ class GameView < Container
       y2 = @viewport.offset_y(p2.y+1)
 
       # TODO change these to draw_polygon_a calls
-      adapter.instance_variable_get('@screen').draw_line_a([x1,y1],[x2,y2],[@green.r,@green.g,@green.b,@green.a])
-      adapter.instance_variable_get('@screen').draw_line_a([x1,y1+1],[x2,y2+1],[@green.r,@green.g,@green.b,@green.a])
-      adapter.instance_variable_get('@screen').draw_line_a([x1,y1+2],[x2,y2+2],[@green.r,@green.g,@green.b,@green.a])
+      adapter.instance_variable_get('@screen').draw_line_a([x1,y1],[x2,y2],[@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a])
+      adapter.instance_variable_get('@screen').draw_line_a([x1,y1+1],[x2,y2+1],[@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a])
+      adapter.instance_variable_get('@screen').draw_line_a([x1,y1+2],[x2,y2+2],[@seg_color.r,@seg_color.g,@seg_color.b,@seg_color.a])
       #adapter.fill(x1,y1,x2,y2,@green)
     end
 

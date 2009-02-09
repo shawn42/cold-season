@@ -19,11 +19,11 @@ class FlowBit < PhysicalCircle
   end
 
   def rand_x
-    rand(10000)-1000
+    rand(6800)-2000
   end
 
   def rand_y
-    rand(500)+30
+    rand(800)+30
   end
 
   def kill_self

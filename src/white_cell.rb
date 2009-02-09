@@ -10,7 +10,7 @@ class WhiteCell < PhysicalCircle
       :mass => 30,
       :friction => 2,
       :space => space,
-      :location => vec2(rand(300)+400,rand(400)+40)
+      :location => vec2(rand(6000)+400,rand(400)+40)
     }
     super(opts)
 

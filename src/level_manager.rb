@@ -10,7 +10,7 @@ class LevelManager
 
   def start
     @level = Level.new
-    @level.background_image = @resource_manager.load_image("level1_bg.png")
+#    @level.background_image = @resource_manager.load_image("level1_bg.png")
 
     @simulation = Simulation.new
     @level.simulation = @simulation

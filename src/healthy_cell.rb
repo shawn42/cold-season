@@ -10,7 +10,7 @@ class HealthyCell < PhysicalCircle
       :mass => 20,
       :friction => 2,
       :space => space,
-      :location => vec2(700,rand(500)+100)
+      :location => vec2(4700,rand(400)+100)
     }
     super(opts)
 

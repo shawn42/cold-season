@@ -9,7 +9,7 @@ class WhiteCellController
 
   def setup_cells(sim)
     @img = @resource_manager.load_image("white_cell.png")
-    1.times do
+    10.times do
       @cells << WhiteCell.new(sim.space, @img)
     end
 
