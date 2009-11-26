@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
+   xmlns:game="http://crosby/gosu/truck"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="10000"
@@ -25,6 +27,27 @@
        inkscape:vp_z="10000 : 384 : 1"
        inkscape:persp3d-origin="5000 : 256 : 1"
        id="perspective2481" />
+    <inkscape:perspective
+       id="perspective3309"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3379"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2475"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -37,15 +60,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.1767767"
-     inkscape:cx="1921.0639"
-     inkscape:cy="709.01328"
+     inkscape:cx="1924.8855"
+     inkscape:cy="857.08787"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1370"
      inkscape:window-height="733"
-     inkscape:window-x="9"
-     inkscape:window-y="29"
+     inkscape:window-x="26"
+     inkscape:window-y="39"
      showguides="false" />
   <metadata
      id="metadata2401">
@@ -64,9 +87,24 @@
      id="layer1"
      style="display:inline">
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 22.627417,-2784.5045 L 45.254834,-1721.0159 L 113.13708,-793.29177 L 22.627417,111.80491 L -248.90159,994.27417 L 0,1469.4499 L 678.82251,1786.2338 L 1538.6644,1650.4693 L 2240.1143,1265.8032 L 2715.29,1175.2935 L 3982.4254,1288.4306 L 4638.6205,1311.058 L 4978.0317,1016.9016 L 5023.2866,541.72583 L 4864.8947,89.177491 L 4457.6011,-453.88052 L 4118.1899,-657.52727 L 3529.877,-702.7821 L 3054.7013,-702.7821 L 2579.5255,-929.05627 L 2172.232,-1358.9772 L 1697.0563,-1879.4078 L 1470.7821,-2286.7013 L 1063.4886,-2739.2496 L 701.44993,-2875.0141 L 407.29351,-3010.7786 L 67.882251,-3056.0335 L -67.882251,-2988.1512"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.59283435px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M -142.2352,-1371.1061 L -126.2583,-841.75721 L -78.327613,-379.98467 L -142.2352,70.525082 L -333.95798,509.77209 L -158.2121,746.2897 L 321.09488,903.96814 L 928.21702,836.39168 L 1423.5009,644.92503 L 1759.0157,599.87404 L 2653.722,656.18777 L 3117.0521,667.4505 L 3356.7055,521.03484 L 3388.6594,284.51722 L 3276.8211,59.262342 L 2989.2369,-211.04351 L 2749.5834,-312.40821 L 2334.184,-334.93369 L 1998.6692,-334.93369 L 1663.1543,-447.56113 L 1375.5701,-661.55326 L 1040.0553,-920.59641 L 880.28628,-1123.3258 L 592.70208,-1348.5806 L 337.07178,-1416.1571 L 129.37208,-1483.7335 L -110.2814,-1506.2591 L -206.14279,-1472.4708"
        id="path2416"
        sodipodi:nodetypes="cccccccccccccccccccccccccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="actors">
+    <image
+       y="649.8681"
+       x="308.60062"
+       id="image3311"
+       height="108"
+       width="108"
+       sodipodi:absref="/Users/sanderson/code/cs/data/graphics/bacteria.png"
+       xlink:href="/Users/sanderson/code/cs/data/graphics/bacteria.png"
+       game:class="bacteria"
+       game:handle="bacteria" />
   </g>
 </svg>

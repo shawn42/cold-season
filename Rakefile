@@ -1,70 +1,14 @@
-require 'config/environment'
-require 'rake/rdoctask'
-require 'lib/platform'
+libdir = File.dirname(__FILE__)+"/lib"
+$: << libdir
+confdir = File.dirname(__FILE__)+"/config"
+$: << confdir
 
-task :default => :run
-
-RDOC_INCLUDES = %w(
-	TODO
-	src/*.rb
-	data/gameplay/*.yml
-	lib/*.rb
-	config/*.rb
-	config/*.yml
-)
-
-RDOC_OPTIONS = ['-a', '-S', '-t Cold Season Documentation']
-
-Rake::RDocTask.new do |t|
-  t.main = "src/app.rb"
-	t.rdoc_files.include(RDOC_INCLUDES)
-	t.options += RDOC_OPTIONS
-end
-
-desc "Run Cold Season"
-task :run do |t|
-#  if Platform.mac?
-    sh "rsdl src/app.rb"
-#  else
-#    sh "ruby src/app.rb"
-#  end
-end
-
-begin
-  require 'spec/rake/spectask'
-
-  desc "Run all specs (tests)"
-  Spec::Rake::SpecTask.new do |t|
-    t.spec_files = FileList['specs/*_spec.rb']
-    t.spec_opts = ["--format", "specdoc"]
-  end
-
-  rule(/spec:.+/) do |t|
-    name = t.name.gsub("spec:","")
-
-    path = File.join( File.dirname(__FILE__),'specs','%s_spec.rb'%name )
-
-    if File.exist? path
-      Spec::Rake::SpecTask.new(name) do |t|
-      t.spec_files = [path]
-    end
-
-    puts "\nRunning spec/%s_spec.rb"%[name]
-      Rake::Task[name].invoke
-    else
-      puts "File does not exist: %s"%path
-    end
-  end
-
-rescue LoadError
-  task :spec do 
-    puts "ERROR: RSpec is not installed?"
-  end
-end
-
-
+require 'environment'
+require 'gamebox/tasks/gamebox_tasks'
 STATS_DIRECTORIES = [
   %w(Source            src/), 
+  %w(Config            config/), 
+  %w(Maps              maps/), 
   %w(Unit\ tests       specs/),
   %w(Libraries         lib/),
 ].collect { |name, dir| [ name, "#{APP_ROOT}/#{dir}" ] }.select { |name, dir| File.directory?(dir) }
@@ -75,3 +19,10 @@ task :stats do
   CodeStatistics.new(*STATS_DIRECTORIES).to_s
 end
 
+require 'spec/rake/spectask'
+desc "Run all specs"
+Spec::Rake::SpecTask.new('rspec') do |t|
+  t.spec_opts = ["-r", "./spec/helper"]
+  t.spec_files = FileList['spec//*_spec.rb']
+end
+task :test => :rspec
